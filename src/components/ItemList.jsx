@@ -1,4 +1,5 @@
 import Item from "./Item"
+import { ItemWithLowStock } from "./ItemWithLowStock";
 
 function Itemlist({items}) {
     
@@ -8,7 +9,7 @@ function Itemlist({items}) {
         
         <div className="grid grid-cols-3 gap-4">
             {items.map(prod => (
-               <Item prod={prod} key={prod.id} />
+               <ItemWithLowStock prod={prod} key={prod.id} />
             ))}
             
         </div>

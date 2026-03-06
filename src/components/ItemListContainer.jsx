@@ -1,20 +1,23 @@
-import { useState } from "react"
-import Itemlist from "./Itemlist"
-import { useEffect } from "react"
+import { useEffect, useState } from "react";
+import Itemlist from "./ItemList";
+
 
 function ItemlistContainer() {
-
     const [items , setItems] = useState([])
-
-    useEffect(() => {
-        fetch('https://dummyjson.com/products')
-        .then(res => res.json())
-        .then(data => setItems(data.products));
-
-    }, [])
+        
+            useEffect(() => {
+                fetch('https://dummyjson.com/products')
+                .then(res => res.json())
+                .then(data => setItems(data.products));
+        
+            }, [])
 
     return(
-        <Itemlist items = {items} />
+        
+            
+    <Itemlist items={items} />
+        
+        
     )
 }
 
