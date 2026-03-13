@@ -1,10 +1,12 @@
 import { Link } from "react-router";
+import CartWidget from "./CartWidget";
+
 function Navbar({ categories }) {
 
 
     return(
         <>
-            <div className="navbar bg-base-100 shadow-sm">
+            <div className="navbar bg-cyan-600 shadow-sm mb-3">
             <div className="navbar-start">
             <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -13,12 +15,10 @@ function Navbar({ categories }) {
       <ul
         tabIndex="-1"
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Item 1</a></li>
         <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
+          <a>Categorias</a>
+          <ul className="p-2 grid grid-cols-1 gap-2">
+            {categories.map( cat => <li key={cat}><Link to={`/category/${cat}`}>{cat}</Link></li> )}
           </ul>
         </li>
       </ul>
@@ -31,16 +31,14 @@ function Navbar({ categories }) {
         <details>
           <summary>Categorias</summary>
           <ul className="p-2 bg-base-100 w-96 z-1 grid grid-cols-2 gap-2">
-              {categories.map( cat => <li key={cat}><a>{cat}</a></li> )}
+              {categories.map( cat => <li key={cat}><Link to={`/category/${cat}`}>{cat}</Link></li> )}
           </ul>
         </details>
       </li>
       
     </ul>
   </div>
-  <div className="navbar-end">
-    <Link to="/cart" className="btn">Carrito </Link>
-  </div>
+  <CartWidget />
 </div>
     </>
     )
