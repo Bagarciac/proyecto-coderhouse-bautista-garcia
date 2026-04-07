@@ -41,26 +41,39 @@ function CartProvider({ children }) {
     const GetLessItem = (product) => {
         const cartCopy = cart.map((item) => {
             if (item.id === product.id) {
-                return { ...item, quantity: item.quantity - 1 };
+                const newQuantity = item.quantity - 1;
+                if (newQuantity > 0) {
+                    return { ...item, quantity: newQuantity };
+                } else {
+                    return null;
+                }
             }
             return item;
-        });
+        }).filter(item => item !== null);
         setCart(cartCopy);
     };
 
 
-    const removeFromCart = (product) => {
-        setCart((prevCart) => prevCart.filter((item) => item.id !== product.id));
+    const clearCart = () => {
+        setCart([]);
     };
+
+    const getTotalPrice = () => {
+        return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    }
 
     const getItemsQuantity = () => {
         return cart.reduce((cantidad, item) => cantidad + item.quantity, 0);
-    }  
+    } 
+    
+    const endPurchase = () => {
+        clearCart();
+    }
 
     
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, getItemsQuantity, GetMoreItem, GetLessItem }}>
+        <CartContext.Provider value={{ cart, addToCart, clearCart, getItemsQuantity, GetMoreItem, GetLessItem , getTotalPrice, endPurchase }}>
             {children}
         </CartContext.Provider>
     )

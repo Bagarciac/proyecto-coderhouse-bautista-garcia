@@ -12,16 +12,22 @@ function AddToCart({ item }) {
 
   return (
     <div>
-      <label htmlFor="quantity">Quantity:</label>
-      <input
-        type="number"
-        id="quantity"
-        value={quantity}
-        onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
-        min="1"
-        max={item.stock}
-      />
-      <button className="btn btn-primary" onClick={handleAddToCart}>Add to Cart</button>
+      {item.stock === 0 ? (
+        <button className="btn btn-error" disabled>No Stock</button>
+      ) : (
+        <>
+          <label htmlFor="quantity">Quantity:</label>
+          <input
+            type="number"
+            id="quantity"
+            value={quantity}
+            onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
+            min="1"
+            max={item.stock}
+          />
+          <button className="btn btn-primary" onClick={handleAddToCart}>Add to Cart</button>
+        </>
+      )}
     </div>
   );
 }

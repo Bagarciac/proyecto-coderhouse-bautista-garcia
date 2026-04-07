@@ -5,7 +5,7 @@ function item ({prod}){
     const navigate = useNavigate();
 
     return(
-        <div className="card bg-gray-800 w-96 shadow-sm border rounded-box ">
+        <div className="card text-mauve-950 bg-white w-96 shadow-sm border rounded-box ">
             <figure className="px-10 pt-10">
             <img
             src={prod.thumbnail}

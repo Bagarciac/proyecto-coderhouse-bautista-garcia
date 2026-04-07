@@ -7,8 +7,8 @@ function ItemDetail ({prod}) {
     }
 
     return(
-        <div className="flex flex-col lg:flex-row mx-20 mt-10">
-            <div className="border  flex bg-white rounded  items-center justify-center">
+        <div className="flex flex-col lg:flex-row mx-20 mt-10 text-mauve-950 bg-white rounded-box p-5 gap-10">
+            <div className="  flex bg-white rounded  items-center justify-center">
                 <img src={prod.thumbnail} alt={prod.title} />
             </div>
             <div className="pl-2.5">

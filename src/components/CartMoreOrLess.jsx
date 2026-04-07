@@ -20,10 +20,10 @@ function CartMoreOrLess( {item } ) {
     
 
     return (
-        <div>
-            <button className="btn btn-square btn-ghost" onClick={handleIncrease}>+</button>
+        <div className="">
+            <button className="btn btn-square btn-ghost size-15 text-xl md:text-2xl md:size-20" onClick={handleIncrease}>+</button>
 
-            <button className="btn btn-square btn-ghost" onClick={handleDecrease}>-</button>
+            <button className="btn btn-square btn-ghost size-15 text-xl md:text-2xl md:size-20" onClick={handleDecrease}>-</button>
             
             
         </div>
