@@ -1,9 +1,10 @@
-import AddToCart from "./AddToCart";
+import itemCount from "./ItemCount";
+import  Loader  from "./Loader";
 
 function ItemDetail ({prod}) {
 
     if (!prod) {
-        return <p>Cargando...</p>;
+        return <Loader />;
     }
 
     return(
@@ -15,7 +16,7 @@ function ItemDetail ({prod}) {
                 <h2 className="text-2xl font-bold">{prod.title}</h2>
                 <p>{prod.description}</p>
                 <p className="text-green-400">Precio: ${prod.price}</p>
-                <AddToCart item = {prod} />
+                <itemCount item = {prod} />
             </div>
             
 

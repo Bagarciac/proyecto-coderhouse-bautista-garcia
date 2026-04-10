@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Itemlist from "./ItemList";
 import { useParams } from "react-router";
 import { getProducts } from "../firebase/db";
+import Loader from "./Loader";
 
 function ItemlistContainer() {
     const { categoryId } = useParams();
@@ -19,6 +20,11 @@ function ItemlistContainer() {
 
             }, [categoryId])
 
+    if (items.length === 0) {
+        return (
+            <Loader />
+        )
+    }
     return(
         
             

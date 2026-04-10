@@ -5,7 +5,8 @@ import {
     where,
     query,
     doc,
-    getDoc
+    getDoc,
+    addDoc
 } from "firebase/firestore";
 import { app } from "./config";
 import { exp } from "firebase/firestore/pipelines";
@@ -49,4 +50,9 @@ const getProductById = async (id) => {
   return product;
 };
 
-export { getProducts, getCategories, getProductById };
+const createOrder = async (order) => {
+    const docRef = await addDoc(collection(db, "orders"), order);
+    return docRef.id;
+};
+
+export { getProducts, getCategories, getProductById, createOrder };

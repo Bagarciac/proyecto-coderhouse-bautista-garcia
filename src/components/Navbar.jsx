@@ -30,7 +30,7 @@ function Navbar({ categories }) {
       <li>
         <details>
           <summary>Categorias</summary>
-          <ul className="p-2 bg-base-100 w-96 z-1 grid grid-cols-2 gap-2">
+          <ul className="p-2  bg-base-100 w-96 z-1 grid grid-cols-2 gap-2">
               {categories.map( cat => <li key={cat}><Link to={`/category/${cat}`}>{cat}</Link></li> )}
           </ul>
         </details>

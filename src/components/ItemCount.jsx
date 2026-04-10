@@ -1,7 +1,8 @@
 import { useState, useContext } from "react";
 import CartContext from "../context/CartContext";
+import button from "daisyui/components/button";
 
-function AddToCart({ item }) {
+function itemCount({ item }) {
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useContext(CartContext);
 
@@ -10,12 +11,12 @@ function AddToCart({ item }) {
     addToCart({ ...item, quantity });
   };
 
+  if (item.stock === 0) {
+    return <button className="btn btn-error" >Out of Stock</button>;
+  }
+
   return (
     <div>
-      {item.stock === 0 ? (
-        <button className="btn btn-error" disabled>No Stock</button>
-      ) : (
-        <>
           <label htmlFor="quantity">Quantity:</label>
           <input
             type="number"
@@ -26,10 +27,8 @@ function AddToCart({ item }) {
             max={item.stock}
           />
           <button className="btn btn-primary" onClick={handleAddToCart}>Add to Cart</button>
-        </>
-      )}
     </div>
   );
 }
 
-export default AddToCart;
+export default itemCount;

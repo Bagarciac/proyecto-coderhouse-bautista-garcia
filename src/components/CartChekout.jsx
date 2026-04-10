@@ -1,10 +1,12 @@
 import { useState, useContext } from "react";
+import { useNavigate } from "react-router";
 import CartContext from "../context/CartContext";
 import CartCheckoutPrices from "./CartCheckoutPrices";
 import CartEndPurchase from "./CartEndPurchase";
 
 function CartCheckout( {items}) {
-    const { clearCart, getTotalPrice, endPurchase } = useContext(CartContext);
+    const navigate = useNavigate();
+    const { clearCart, getTotalPrice/*, endPurchase*/ } = useContext(CartContext);
     const [purchaseCompleted, setPurchaseCompleted] = useState(false);
     
     const total = getTotalPrice();
@@ -13,10 +15,10 @@ function CartCheckout( {items}) {
         clearCart();
     }
 
-    const handleEndPurchase = () => {
-        setPurchaseCompleted(true);
-        clearCart();
-    }
+    // const handleEndPurchase = () => {
+    //     setPurchaseCompleted(true);
+    //     clearCart();
+    // }
 
     const handleCloseModal = () => {
         setPurchaseCompleted(false);
@@ -48,7 +50,7 @@ function CartCheckout( {items}) {
 
                 <button className="btn bg-cyan-600"
                 onClick={handleClearCart}>vaciar carrito</button>
-                <button className="btn bg-cyan-600" onClick={handleEndPurchase}>Finalizar compra</button>
+                <button className="btn bg-cyan-600" onClick={() => navigate(`/checkout`)}>Ir a Checkout</button>
             </div>
             {purchaseCompleted && <CartEndPurchase onClose={handleCloseModal} />}
 

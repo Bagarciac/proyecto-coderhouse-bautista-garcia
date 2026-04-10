@@ -4,7 +4,7 @@ import NavbarContainer from "../components/NavbarContainer";
 import NotFound from "../components/NotFound";
 import ItemDetailContainer from "../components/ItemDetailContainer";
 import CartContainer from "../components/CartContainer";
-
+import Checkout from "../components/Checkout";
 
 function AppRouter() {
 
@@ -16,6 +16,7 @@ function AppRouter() {
                 <Route path="/cart" element= {<CartContainer />} />
                 <Route path="/category/:categoryId" element={<ItemlistContainer />} />
                 <Route path="/product/:productId" element = {<ItemDetailContainer/>}/>
+                <Route path="/checkout" element = {<Checkout/>}/>
                 <Route path="*" element = {<NotFound/>} />
             </Routes>
         </BrowserRouter>
