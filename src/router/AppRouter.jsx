@@ -4,7 +4,7 @@ import NavbarContainer from "../components/NavbarContainer";
 import NotFound from "../components/NotFound";
 import ItemDetailContainer from "../components/ItemDetailContainer";
 import CartContainer from "../components/CartContainer";
-import Checkout from "../components/Checkout";
+import Checkout from "../components/CheckoutForm";
 
 function AppRouter() {
 

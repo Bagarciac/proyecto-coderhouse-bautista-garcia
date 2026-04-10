@@ -1,8 +1,7 @@
 import { useState, useContext } from "react";
 import CartContext from "../context/CartContext";
-import button from "daisyui/components/button";
 
-function itemCount({ item }) {
+function ItemCount({ item }) {
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useContext(CartContext);
 
@@ -31,4 +30,4 @@ function itemCount({ item }) {
   );
 }
 
-export default itemCount;
+export default ItemCount;

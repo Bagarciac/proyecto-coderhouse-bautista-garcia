@@ -1,4 +1,4 @@
-import itemCount from "./ItemCount";
+import ItemCount from "./ItemCount";
 import  Loader  from "./Loader";
 
 function ItemDetail ({prod}) {
@@ -16,7 +16,7 @@ function ItemDetail ({prod}) {
                 <h2 className="text-2xl font-bold">{prod.title}</h2>
                 <p>{prod.description}</p>
                 <p className="text-green-400">Precio: ${prod.price}</p>
-                <itemCount item = {prod} />
+                <ItemCount item = {prod} />
             </div>
             
 
